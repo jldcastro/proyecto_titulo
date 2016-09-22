@@ -12,3 +12,5 @@
 */
 
 Route::get('/administrador','AdministradorController@index');
+
+Route::resource('/usuario','UsuarioController');
