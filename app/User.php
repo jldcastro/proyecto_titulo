@@ -1,9 +1,10 @@
 <?php
 
-namespace App;
+namespace Calibracion;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -36,4 +37,10 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function setPasswordAttribute($valor){
+        if(!empty($valor)){
+            $this->attributes['password'] = \Hash::make($valor);
+        }
+    }
 }

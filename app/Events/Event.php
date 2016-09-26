@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace Calibracion\Events;
 
 abstract class Event
 {

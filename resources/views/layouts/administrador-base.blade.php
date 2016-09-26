@@ -9,19 +9,18 @@
   <!-- Logo Empresa en la pestaña del navegador -->
   <link rel="icon" href="{{asset('imagenes/molinstec.png')}}" type="image/gif" sizes="16x16">
   <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
+  {!!Html::style('bootstrap/css/bootstrap.min.css')!!}
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- jvectormap -->
-  <link rel="stylesheet" href="{{asset('plugins/jvectormap/jquery-jvectormap-1.2.2.css')}}">
+    {!!Html::style('plugins/jvectormap/jquery-jvectormap-1.2.2.css')!!}
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('dist/css/AdminLTE.min.css')}}">
+    {!!Html::style('dist/css/AdminLTE.min.css')!!}
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="{{asset('dist/css/skins/_all-skins.min.css')}}">
-
+    {!!Html::style('dist/css/skins/_all-skins.min.css')!!}
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -499,25 +498,25 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 2.2.3 -->
-<script src="{{asset('plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
+{!!Html::script('plugins/jQuery/jquery-2.2.3.min.js')!!}
 <!-- Bootstrap 3.3.6 -->
-<script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
+{!!Html::script('bootstrap/js/bootstrap.min.js')!!}
 <!-- FastClick -->
-<script src="{{asset('plugins/fastclick/fastclick.js')}}"></script>
+{!!Html::script('plugins/fastclick/fastclick.js')!!}
 <!-- AdminLTE App -->
-<script src="{{asset('dist/js/app.min.js')}}"></script>
+{!!Html::script('dist/js/app.min.js')!!}
 <!-- Sparkline -->
-<script src="{{asset('plugins/sparkline/jquery.sparkline.min.js')}}"></script>
+{!!Html::script('plugins/sparkline/jquery.sparkline.min.js')!!}
 <!-- jvectormap -->
-<script src="{{asset('plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
-<script src="{{asset('plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+{!!Html::script('plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')!!}
+{!!Html::script('plugins/jvectormap/jquery-jvectormap-world-mill-en.js')!!}
 <!-- SlimScroll 1.3.0 -->
-<script src="{{asset('plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
+{!!Html::script('plugins/slimScroll/jquery.slimscroll.min.js')!!}
 <!-- ChartJS 1.0.1 -->
-<script src="{{asset('plugins/chartjs/Chart.min.js')}}"></script>
+{!!Html::script('plugins/chartjs/Chart.min.js')!!}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('dist/js/pages/dashboard2.js')}}"></script>
+{!!Html::script('dist/js/pages/dashboard2.js')!!}
 <!-- AdminLTE for demo purposes -->
-<script src="{{asset('dist/js/demo.js')}}"></script>
+{!!Html::script('dist/js/demo.js')!!}
 </body>
 </html>
