@@ -34,7 +34,7 @@
 
                             <td>
                                 {!!Form::open(['route' =>['usuario.destroy',$usuario->id], 'method'=>'DELETE'])!!}
-                                    {!!Form::button('<i class="fa fa-eye"></i>Eliminar',['class' => '.btn-flat btn-danger', 'role' => 'button','type' => 'submit'])!!}
+                                    {!!Form::button('<i class="fa fa-remove"></i>Eliminar',['class' => '.btn-flat btn-danger', 'role' => 'button','type' => 'submit'])!!}
                                 {!!Form::close()!!}
                             </td>
                         </tr>
