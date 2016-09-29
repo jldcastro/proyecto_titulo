@@ -1,25 +1,14 @@
 <?php
 
 namespace Calibracion\Http\Middleware;
-
-use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use Closure;
+use Illuminate\Support\Facades\Session;
 
-class Authenticate
+class Administrador
 {
-    /**
-     * The Guard implementation.
-     *
-     * @var Guard
-     */
     protected $auth;
 
-    /**
-     * Create a new middleware instance.
-     *
-     * @param  Guard  $auth
-     * @return void
-     */
     public function __construct(Guard $auth)
     {
         $this->auth = $auth;
@@ -34,14 +23,11 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
-        if ($this->auth->guest()) {
-            if ($request->ajax()) {
-                return response('Unauthorized.', 401);
-            } else {
-                return redirect()->guest('/login');
-            }
+        if($this->auth->user()->tipo_usuario != 'administrador')
+        {
+            Session::flash('mensaje-errores','Sin permisos de acceso');
+            return redirect()->to('administrador');
         }
-
         return $next($request);
     }
 }

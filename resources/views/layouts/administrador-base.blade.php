@@ -303,6 +303,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MENÚ</li>
+        @if(Auth::user()->tipo_usuario == 'administrador')
         <li class="active treeview">
           <a href="#">
             <i class="fa fa-user"></i> <span>Usuarios</span>
@@ -315,6 +316,7 @@
             <li class="active"><a href="{{ url('/usuario') }}"><i class="fa fa-list"></i>Lista Usuarios</a></li>
           </ul>
         </li>
+        @endif
         <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
