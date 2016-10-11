@@ -59,7 +59,7 @@ class UsuarioController extends Controller
             'tipo_usuario' => $request['tipo_usuario']
         ]);
 
-        return redirect('/usuario')->with('mensaje', 'store');
+        return redirect('/usuario')->with('mensaje', 'Usuario creado exitosamente');
     }
 
     /**

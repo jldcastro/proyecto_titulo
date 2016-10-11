@@ -45,4 +45,6 @@
             </div>
         </div>
     </div>
+    <!-- scripts para realizar petición ajax -->
+    {!!Html::script('js/script.js')!!}
 @stop

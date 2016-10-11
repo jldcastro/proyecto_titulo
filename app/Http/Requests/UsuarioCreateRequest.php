@@ -30,7 +30,7 @@ class UsuarioCreateRequest extends Request
             'password' => 'required',
             'apellido_paterno' => 'required',
             'apellido_materno' => 'required',
-            'rut_usuario' => 'required|unique:users',
+            'rut_usuario' => 'required|cl_rut|unique:users',
             'tipo_usuario' => 'required'
         ];
     }

@@ -40,11 +40,11 @@ class LoginController extends Controller
      */
     public function store(LoginRequest $request)
     {
-        if(Auth::attempt(['email' => $request['email'],'password' => $request['password']]))
+        if(Auth::attempt(['rut_usuario' => $request['rut_usuario'],'password' => $request['password']]))
         {
             return Redirect::to('administrador');
         }
-        Session::flash('mensaje-errores','El correo eletrónico y/o contraseña no son correctos');
+        Session::flash('mensaje-errores','El rut y/o contraseña no son válidos');
         return Redirect::to('/login');
     }
 

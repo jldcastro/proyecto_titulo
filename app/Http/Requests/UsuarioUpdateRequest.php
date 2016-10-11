@@ -29,7 +29,7 @@ class UsuarioUpdateRequest extends Request
             'email' => 'required',
             'apellido_paterno' => 'required',
             'apellido_materno' => 'required',
-            'rut_usuario' => 'required',
+            'rut_usuario' => 'required|cl_rut',
             'tipo_usuario' => 'required'
         ];
     }

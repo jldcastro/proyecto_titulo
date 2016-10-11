@@ -10,8 +10,8 @@
     <p class="login-box-msg">Iniciar sesión</p>
         {!!Form::open(['route' => 'login.store','method' =>'POST'])!!}
             <div class="form-group">
-                {!!Form::label('email','Correo Electrónico')!!}
-                {!!Form::email('email',null,['class' => 'form-control'])!!}
+                {!!Form::label('rut_usuario','Rut')!!}
+                {!!Form::text('rut_usuario',null,['class' => 'form-control'])!!}
             </div>
 
             <div class="form-group">
@@ -26,7 +26,7 @@
                   <div class="alert alert-danger alert-dismissible">
                       {{Session::get('mensaje-errores')}}
                   </div>
-          @endif
+  @endif
 
 </div>
 <!-- /.login-box -->

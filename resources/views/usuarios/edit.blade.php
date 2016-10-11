@@ -36,16 +36,6 @@
                             </div>
 
                             <div class = "form-group has-feedback">
-                                {!!Form::label('Contraseña*')!!}
-                                {!!Form::password('password',['class'=>'form-control'])!!}
-                            </div>
-
-                            <div class = "form-group has-feedback">
-                                {!!Form::label('Confirmar Contraseña*')!!}
-                                {!!Form::password('password_confirmation',['class'=>'form-control'])!!}
-                            </div>
-
-                            <div class = "form-group has-feedback">
                                 {!!Form::label('Apellido Paterno')!!}
                                 {!!Form::text('apellido_paterno',null,['class'=>'form-control'])!!}
                             </div>
