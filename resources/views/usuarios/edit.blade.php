@@ -17,9 +17,7 @@
                             </div>
                         @endif
                         {!!Form::model($usuario,['route' => ['usuario.update',$usuario->id], 'method' => 'PUT'])!!}
-                            <div class="box-body col-xs-12">
 
-                            </div>
                             <div class = "form-group has-feedback">
                                 {!!Form::label('Código')!!}
                                 {!!Form::text('codigo_usuario',null,['class'=>'form-control'])!!}

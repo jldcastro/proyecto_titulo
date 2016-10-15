@@ -24,9 +24,9 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $usuarios = User::paginate(10);
+        $usuarios = User::search($request->codigo_usuario)->paginate(10);
         return view('usuarios.index', compact('usuarios'));
     }
 
@@ -58,7 +58,6 @@ class UsuarioController extends Controller
             'rut_usuario' => $request['rut_usuario'],
             'tipo_usuario' => $request['tipo_usuario']
         ]);
-
         return redirect('/usuario')->with('mensaje', 'Usuario creado exitosamente');
     }
 

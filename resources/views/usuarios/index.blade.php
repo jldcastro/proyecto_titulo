@@ -14,6 +14,14 @@
                     <h3 class="box-title">Lista de Usuarios</h3>
                 </div>
 
+                {!!Form::open(['route' => 'usuario.index','method' => 'GET', 'class' => 'navbar-form pull-left' ])!!}
+                    <div class = "input-group">
+                        <div class="input-group-addon" id="search">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                        {!!Form::text('codigo_usuario',null,['class'=>'form-control', 'placeholder' => 'Buscar usuario', 'ariadescribedby' => 'search'])!!}
+                    </div>
+                {!!Form::close()!!}
                 <div class="box-body">
                     <table class="table table-bordered">
                         <tr>

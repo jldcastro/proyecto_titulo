@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Carbon\Carbon;
 
 class User extends Model implements AuthenticatableContract,
                                     AuthorizableContract,
@@ -42,5 +43,10 @@ class User extends Model implements AuthenticatableContract,
         if(!empty($valor)){
             $this->attributes['password'] = \Hash::make($valor);
         }
+    }
+
+    public function scopeSearch($query, $codigo_usuario)
+    {
+        return $query->where('codigo_usuario','LIKE',"%$codigo_usuario%");
     }
 }

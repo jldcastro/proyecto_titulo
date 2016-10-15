@@ -17,10 +17,9 @@
                             </ul>
                         </div>
                     @endif
-                    {!!Form::open(['route' => 'usuario.store','method' => 'POST'])!!}
-                        <div class="box-body col-xs-12">
 
-                        </div>
+                    {!!Form::open(['route' => 'usuario.store','method' => 'POST', 'files' => true ])!!}
+
                         <div class = "form-group has-feedback">
                             {!!Form::label('Código')!!}
                             {!!Form::text('codigo_usuario',null,['class'=>'form-control'])!!}
@@ -67,9 +66,11 @@
                             {!!Form::radio('tipo_usuario','metrologo')!!}Metrólogo&nbsp;&nbsp;
                             {!!Form::radio('tipo_usuario','vendedor')!!}Vendedor&nbsp;&nbsp;
                         </div>
+
                         <div class="form-group has-feedback">
                             {!!Form::submit('Registrar',['class' =>'.btn btn-primary'])!!}
                         </div>
+
                     {!!Form::close()!!}
             </div>
         </div>

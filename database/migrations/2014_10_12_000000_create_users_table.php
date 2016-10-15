@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('apellido_materno');
             $table->string('rut_usuario');
             $table->enum('tipo_usuario', ['administrador','vendedor','metrologo']);
+            $table->string('image');
             $table->rememberToken();
             $table->timestamps();
         });
