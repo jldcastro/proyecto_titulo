@@ -38,7 +38,7 @@
                             <td>{{$usuario->apellido_paterno}}</td>
                             <td>{{$usuario->rut_usuario}}</td>
                             <td><button class=".btn-flat btn-success"><i class="fa fa-pencil-square-o"></i><a href="usuario/{{$usuario->id}}/edit" style="color: #ffffff">Actualizar</a></button></td>
-                            <td><button class=".btn-flat btn-warning"><i class="fa fa-eye"></i>Detalles</button></td>
+                            <td><button class=".btn-flat btn-warning"><i class="fa fa-eye"></i><a href="usuario/{{$usuario->id}}" style="color: #ffffff">Detalles</a></button></td>
 
                             <td>
                                 {!!Form::open(['route' =>['usuario.destroy',$usuario->id], 'method'=>'DELETE'])!!}

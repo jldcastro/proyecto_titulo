@@ -15,6 +15,8 @@ Route::get('/administrador','AdministradorController@index');
 
 Route::resource('/usuario','UsuarioController');
 
+Route::resource('/equipo','EquipoController');
+
 Route::resource('/login','LoginController');
 
 Route::get('logout','LoginController@logout');

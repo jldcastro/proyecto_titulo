@@ -318,24 +318,22 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-file-pdf-o"></i>
-            <span>Formularios</span>
+            <i class="fa fa-briefcase"></i>
+            <span>Equipos</span>
             <span class="pull-right-container">
              <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-            <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-            <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+            <li class="active"><a href="{{ url('/equipo/create') }}"><i class="fa fa-plus"></i>Agregar equipo</a></li>
+            <li class="active"><a href="{{ url('/equipo') }}"><i class="fa fa-list"></i>Lista Equipos</a></li>
           </ul>
         </li>
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-briefcase"></i>
-            <span>Equipos</span>
+            <i class="fa fa-file-pdf-o"></i>
+            <span>Formularios</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
