@@ -10,6 +10,12 @@
                 </div>
 
                         <div class = "form-group has-feedback">
+                            <label>Imagen perfil usuario</label>
+                            <br>
+                            <img src="{{asset('imagenes/usuarios/'.$usuario->foto)}}" width="150px">
+                        </div>
+
+                        <div class = "form-group has-feedback">
                             <label>Código</label>
                             <input type="text" class="form-control" value="{{$usuario->codigo_usuario}}" disabled>
                         </div>

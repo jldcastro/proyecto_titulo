@@ -22,42 +22,42 @@
 
                         <div class = "form-group has-feedback">
                             {!!Form::label('Código')!!}
-                            {!!Form::text('codigo_usuario',null,['class'=>'form-control'])!!}
+                            {!!Form::text('codigo_usuario',null,['class'=>'form-control','required'])!!}
                         </div>
 
                         <div class = "form-group has-feedback">
                             {!!Form::label('Nombres*')!!}
-                            {!!Form::text('name',null,['class'=>'form-control'])!!}
+                            {!!Form::text('name',null,['class'=>'form-control','required'])!!}
                         </div>
 
                         <div class = "form-group has-feedback">
                             {!!Form::label('Correo Electrónico*')!!}
-                            {!!Form::text('email',null,['class'=>'form-control'])!!}
+                            {!!Form::text('email',null,['class'=>'form-control','required'])!!}
                         </div>
 
                         <div class = "form-group has-feedback">
                             {!!Form::label('Contraseña*')!!}
-                            {!!Form::password('password',['class'=>'form-control'])!!}
+                            {!!Form::password('password',['class'=>'form-control','required'])!!}
                         </div>
 
                         <div class = "form-group has-feedback">
                             {!!Form::label('Confirmar Contraseña*')!!}
-                            {!!Form::password('password_confirmation',['class'=>'form-control'])!!}
+                            {!!Form::password('password_confirmation',['class'=>'form-control','required'])!!}
                         </div>
 
                         <div class = "form-group has-feedback">
                             {!!Form::label('Apellido Paterno')!!}
-                            {!!Form::text('apellido_paterno',null,['class'=>'form-control'])!!}
+                            {!!Form::text('apellido_paterno',null,['class'=>'form-control','required'])!!}
                         </div>
 
                         <div class = "form-group has-feedback">
                             {!!Form::label('Apellido Materno')!!}
-                            {!!Form::text('apellido_materno',null,['class'=>'form-control'])!!}
+                            {!!Form::text('apellido_materno',null,['class'=>'form-control','required'])!!}
                         </div>
 
                         <div class = "form-group has-feedback">
                             {!!Form::label('Rut')!!}
-                            {!!Form::text('rut_usuario',null,['class'=>'form-control'])!!}
+                            {!!Form::text('rut_usuario',null,['class'=>'form-control','required'])!!}
                         </div>
 
                         <div class = "form-group has-feedback">
@@ -66,6 +66,11 @@
                             {!!Form::radio('tipo_usuario','metrologo')!!}Metrólogo&nbsp;&nbsp;
                             {!!Form::radio('tipo_usuario','vendedor')!!}Vendedor&nbsp;&nbsp;
                         </div>
+
+                        <div class="form-group has-feedback">
+			                {!! Form::label('foto', 'Imagen perfil usuario') !!}
+			                {!! Form::file('foto') !!}
+		                </div>
 
                         <div class="form-group has-feedback">
                             {!!Form::submit('Registrar',['class' =>'.btn btn-primary'])!!}

@@ -16,7 +16,7 @@
                                 </ul>
                             </div>
                         @endif
-                        {!!Form::model($usuario,['route' => ['usuario.update',$usuario->id], 'method' => 'PUT'])!!}
+                        {!!Form::model($usuario,['route' => ['usuario.update',$usuario->id], 'method' => 'PUT', 'files' => true])!!}
 
                             <div class = "form-group has-feedback">
                                 {!!Form::label('Código')!!}
@@ -49,11 +49,16 @@
                             </div>
 
                             <div class = "form-group has-feedback">
-                                <h5>Tipo de usuario</h5>
-                                {!!Form::radio('tipo_usuario','administrador')!!}Administrador&nbsp;&nbsp;
-                                {!!Form::radio('tipo_usuario','metrologo')!!}Metrólogo&nbsp;&nbsp;
-                                {!!Form::radio('tipo_usuario','vendedor')!!}Vendedor&nbsp;&nbsp;
+                                <label>Imagen perfil usuario</label>
+                                <br>
+                                <img src="{{asset('imagenes/usuarios/'.$usuario->foto)}}" width="150px">
                             </div>
+
+                            <div class="form-group has-feedback">
+                                {!! Form::label('foto', 'Imagen perfil usuario') !!}
+                            	{!! Form::file('foto') !!}
+                            </div>
+
                             <div class="form-group has-feedback">
                                 {!!Form::submit('Actualizar',['class' =>'.btn-flat btn-primary'])!!}
                             </div>

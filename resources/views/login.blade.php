@@ -20,6 +20,9 @@
             </div>
                 {!!Form::button('<i class="fa fa-key"></i>Ingresar',['class' => '.btn-flat btn-primary', 'role' => 'button','type' => 'submit'])!!}
         {!!Form::close()!!}
+                {!!link_to('password/email', $title = 'Olvidó tu contraseña?', $attributes = null, $secure = null)!!}
+
+
   </div>
   <!-- /.login-box-body -->
   @if(Session::has('mensaje-errores'))

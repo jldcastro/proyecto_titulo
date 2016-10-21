@@ -246,16 +246,20 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{asset('imagenes/usuarios/perfil.png')}}" class="user-image" alt="User Image">
-              <span class="hidden-xs"></span>
+                @if(Auth::check())
+                    <img src="{{asset('imagenes/usuarios/'.Auth::user()->foto)}}" class="user-image" alt="User Image">
+                @endif
+
+              <span class="hidden-xs">{{Auth::user()->name}} {{Auth::user()->apellido_paterno}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{asset('imagenes/usuarios/perfil.png')}}" class="img-circle" alt="User Image">
-
+                 @if(Auth::check())
+                    <img src="{{asset('imagenes/usuarios/'.Auth::user()->foto)}}" class="user-image" alt="User Image">
+                 @endif
                 <p>
-
+                    {{Auth::user()->name}} {{Auth::user()->apellido_paterno}} - {{Auth::user()->tipo_usuario}}
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -282,10 +286,12 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{asset('imagenes/usuarios/perfil.png')}}" class="img-circle" alt="User Image">
+            @if(Auth::check())
+                <img src="{{asset('imagenes/usuarios/'.Auth::user()->foto)}}" class="img-circle" alt="User Image">
+            @endif
         </div>
         <div class="pull-left info">
-          <p></p>
+          <p>{{Auth::user()->name}} {{Auth::user()->apellido_paterno}}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -362,43 +368,7 @@
             <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
           </ul>
         </li>
-
-
-
-        <li class="treeview">
-                  <a href="#">
-                    <i class="fa fa-picture-o"></i>
-                    <span>Imagen Usuario</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="{{ url('/perfil/create') }}"><i class="fa fa-user"></i> Modificar avatar usuario</a></li>
-                  </ul>
-        </li>
-
-
-
-                <li class="treeview">
-                          <a href="#">
-                            <i class="fa fa-book"></i>
-                            <span>Acción 1 vendedor</span>
-                            <span class="pull-right-container">
-                              <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                          </a>
-                          <ul class="treeview-menu">
-                            <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-                            <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-                            <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-                            <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-                            <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-                            <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
-                          </ul>
-                </li>
-
-      </ul>
+     </ul>
 
     </section>
     <!-- /.sidebar -->

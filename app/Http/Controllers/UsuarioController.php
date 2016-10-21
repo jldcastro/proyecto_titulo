@@ -10,13 +10,14 @@ use Illuminate\Support\Facades\Redirect;
 use Calibracion\User;
 use Calibracion\Http\Requests;
 use Calibracion\Http\Controllers\Controller;
+use Storage;
+use File;
 
 class UsuarioController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware('administrador');
+
     }
 
     /**
@@ -26,6 +27,7 @@ class UsuarioController extends Controller
      */
     public function index(Request $request)
     {
+
         $usuarios = User::search($request->codigo_usuario)->paginate(10);
         return view('usuarios.index', compact('usuarios'));
     }
@@ -48,16 +50,7 @@ class UsuarioController extends Controller
      */
     public function store(UsuarioCreateRequest $request)
     {
-        User::create([
-            'codigo_usuario' => $request['codigo_usuario'],
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => $request['password'],
-            'apellido_paterno' => $request['apellido_paterno'],
-            'apellido_materno' => $request['apellido_materno'],
-            'rut_usuario' => $request['rut_usuario'],
-            'tipo_usuario' => $request['tipo_usuario']
-        ]);
+        User::create($request->all());
         return redirect('/usuario')->with('mensaje', 'Usuario creado exitosamente');
     }
 
@@ -92,16 +85,13 @@ class UsuarioController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id, UsuarioUpdateRequest $request)
+    public function update( UsuarioUpdateRequest $request, $id)
     {
+
         $usuario = User::find($id);
         $usuario->fill($request->all());
         $usuario->save();
-
-        Session::flash('mensaje','Se guardaron los cambios exitosamente');
-        return Redirect::to('/usuario');
-
-
+        return redirect('/usuario')->with('mensaje', 'Se guardaron los cambios exitosamente');
     }
 
     /**

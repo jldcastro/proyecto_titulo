@@ -15,6 +15,15 @@ Route::get('/administrador','AdministradorController@index');
 
 Route::resource('/usuario','UsuarioController');
 
+Route::get('usuarios/{foto}',function($foto = null)
+{
+    $url = public_path() . "/imagenes/usuarios/{$foto}";
+    if(file_exists($url))
+    {
+        return Response::download($url);
+    }
+});
+
 Route::resource('/equipo','EquipoController');
 
 Route::resource('/login','LoginController');

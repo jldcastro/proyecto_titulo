@@ -11,6 +11,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Model implements AuthenticatableContract,
                                     AuthorizableContract,
@@ -30,7 +31,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password','codigo_usuario','apellido_paterno','apellido_materno','rut_usuario','tipo_usuario'];
+    protected $fillable = ['name', 'email', 'password','codigo_usuario','apellido_paterno','apellido_materno','rut_usuario','tipo_usuario','foto'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -43,6 +44,17 @@ class User extends Model implements AuthenticatableContract,
         if(!empty($valor)){
             $this->attributes['password'] = \Hash::make($valor);
         }
+    }
+
+    public function setFotoAttribute($foto)
+    {
+        if(!empty($foto))
+        {
+            $this->attributes['foto'] = Carbon::now()->second.$foto->getClientOriginalName();
+            $name = Carbon::now()->second.$foto->getClientOriginalName();
+            Storage::disk('local')->put($name, \File::get($foto));
+        }
+
     }
 
     public function scopeSearch($query, $codigo_usuario)
