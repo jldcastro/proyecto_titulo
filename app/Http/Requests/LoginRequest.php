@@ -25,7 +25,7 @@ class LoginRequest extends Request
     {
         return [
             'rut_usuario' => 'required|cl_rut',
-            'password' => 'required',
+            'password' => 'required|min:6',
         ];
     }
 }

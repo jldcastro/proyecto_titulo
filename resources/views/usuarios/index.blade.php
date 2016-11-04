@@ -39,30 +39,9 @@
                             <td>{{$usuario->rut_usuario}}</td>
                             <td><button class=".btn-flat btn-success"><i class="fa fa-pencil-square-o"></i><a href="usuario/{{$usuario->id}}/edit" style="color: #ffffff">Actualizar</a></button></td>
                             <td><button class=".btn-flat btn-warning"><i class="fa fa-eye"></i><a href="usuario/{{$usuario->id}}" style="color: #ffffff">Detalles</a></button></td>
-                            <td><button class=".btn-flat btn-danger" data-toggle="modal" data-target="#myModal"><i class="fa fa-remove"></i>Eliminar</button></td>
+                            <td><button class=".btn-flat btn-danger" data-toggle="modal" data-target="#myModal"><i class="fa fa-remove"></i><a style="color: #ffffff">Eliminar</a></button></td>
                         </tr>
-                        <!-- Modal -->
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title" id="myModalLabel">Atención</h4>
-                                        </div>
-
-                                        <div class="modal-body">
-                                            <div class="">Desea eliminar este usuario?</div>
-                                        </div>
-
-                                        <div class="modal-footer">
-                                            {!!Form::open(['route' =>['usuario.destroy',$usuario->id], 'method'=>'DELETE', 'class' => 'form-delete'])!!}
-                                                {!!Form::submit('Eliminar',['class' => '.btn-flat btn-danger'])!!}
-                                            {!!Form::close()!!}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
+                           @endforeach
                     </table>
                     {!!$usuarios->render()!!}
                 </div>
@@ -70,4 +49,24 @@
         </div>
     </div>
 
+<!-- Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">¿Desea realmente eliminar este usuario?</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="">¿Desea realmente eliminar este usuario?</div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                        {!! Form::open(['route' =>['usuario.destroy',$usuario->id], 'method' => 'DELETE', 'class' => 'form-delete']) !!}
+                                            {!!Form::button('<i class="fa fa-remove"></i>Eliminar',['class' => '.btn-flat btn-danger', 'role' => 'button','type' => 'submit', 'data-toggle' => 'modal', 'data-target' => '#myModal'])!!}
+                                        {!! Form::close() !!}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 @stop

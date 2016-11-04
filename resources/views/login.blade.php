@@ -8,6 +8,16 @@
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Iniciar sesión</p>
+
+    @if(count($errors)>0)
+        <div class="alert alert-danger alert-dismissible">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{!!$error!!}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         {!!Form::open(['route' => 'login.store','method' =>'POST'])!!}
             <div class="form-group">
                 {!!Form::label('rut_usuario','Rut')!!}
@@ -20,7 +30,7 @@
             </div>
                 {!!Form::button('<i class="fa fa-key"></i>Ingresar',['class' => '.btn-flat btn-primary', 'role' => 'button','type' => 'submit'])!!}
         {!!Form::close()!!}
-                {!!link_to('password/email', $title = 'Olvidó tu contraseña?', $attributes = null, $secure = null)!!}
+                {!!link_to('password/email', $title = 'Olvidó su contraseña?', $attributes = null, $secure = null)!!}
 
 
   </div>
@@ -32,6 +42,7 @@
   @endif
 
 </div>
+
 <!-- /.login-box -->
 
 <script>

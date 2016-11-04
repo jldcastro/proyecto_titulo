@@ -4,6 +4,7 @@ namespace Calibracion\Http\Controllers\Auth;
 
 use Calibracion\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Auth;
 
 class PasswordController extends Controller
 {
@@ -25,6 +26,9 @@ class PasswordController extends Controller
      *
      * @return void
      */
+
+
+
     public function __construct()
     {
         $this->middleware('guest');

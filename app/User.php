@@ -31,7 +31,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password','codigo_usuario','apellido_paterno','apellido_materno','rut_usuario','tipo_usuario','foto'];
+    protected $fillable = ['name', 'email', 'password','codigo_usuario','apellido_paterno','apellido_materno','rut_usuario','foto','perfil_id'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -39,6 +39,11 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function perfil()
+    {
+        return $this->belongsTo('Calibracion\Perfil');
+    }
 
     public function setPasswordAttribute($valor){
         if(!empty($valor)){

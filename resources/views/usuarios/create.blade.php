@@ -60,20 +60,18 @@
                             {!!Form::text('rut_usuario',null,['class'=>'form-control','required'])!!}
                         </div>
 
-                        <div class = "form-group has-feedback">
-                            <h5>Tipo de usuario</h5>
-                            {!!Form::radio('tipo_usuario','administrador')!!}Administrador&nbsp;&nbsp;
-                            {!!Form::radio('tipo_usuario','metrologo')!!}Metrólogo&nbsp;&nbsp;
-                            {!!Form::radio('tipo_usuario','vendedor')!!}Vendedor&nbsp;&nbsp;
-                        </div>
-
                         <div class="form-group has-feedback">
 			                {!! Form::label('foto', 'Imagen perfil usuario') !!}
 			                {!! Form::file('foto') !!}
 		                </div>
 
+		                <div class ="form-group has-feedback">
+		                    {!! Form::label('perfil_id', 'Tipo de usuario') !!}
+		                    {!! Form::select('perfil_id', $tipo_usuarios ,null, ['placeholder' => 'Seleccione el tipo de usuario', 'class' => 'form-control','required']) !!}
+		                </div>
+
                         <div class="form-group has-feedback">
-                            {!!Form::submit('Registrar',['class' =>'.btn btn-primary'])!!}
+                            {!!Form::submit('Registrar',['class' =>'.btn btn-primary'],['class' => 'form-control'])!!}
                         </div>
 
                     {!!Form::close()!!}

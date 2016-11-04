@@ -47,7 +47,7 @@
 
                         <div class = "form-group has-feedback">
                             <label>Tipo usuario</label>
-                            <input type="text" class = "form-control" value="{{$usuario->tipo_usuario}}" disabled>
+                            <input type="text" class = "form-control" value="{!! $usuario->perfil->tipo_usuario !!}" disabled>
                         </div>
                 </div>
         </div>

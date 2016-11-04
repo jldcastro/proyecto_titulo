@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class BaseDeDatos extends Migration
 {
     /**
      * Run the migrations.
@@ -12,6 +12,18 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        /**
+         * Run the migrations.
+         *
+         * @return void
+         */
+        Schema::create('perfiles', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('tipo_usuario')->unique();
+            $table->rememberToken();
+            $table->timestamps();
+       });
+
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('codigo_usuario');
@@ -22,11 +34,13 @@ class CreateUsersTable extends Migration
             $table->string('apellido_materno');
             $table->string('rut_usuario');
             $table->string('foto');
-            $table->enum('tipo_usuario', ['administrador','vendedor','metrologo']);
+            $table->integer('perfil_id')->unsigned()->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->foreign('perfil_id')->references('id')->on('perfiles')->onDelete('cascade');
         });
     }
+
 
     /**
      * Reverse the migrations.
@@ -35,6 +49,7 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        Schema::drop('perfiles');
         Schema::drop('users');
     }
 }

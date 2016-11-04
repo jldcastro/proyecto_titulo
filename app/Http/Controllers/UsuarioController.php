@@ -8,6 +8,7 @@ use Calibracion\Http\Requests\UsuarioUpdateRequest;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use Calibracion\User;
+use Calibracion\Perfil;
 use Calibracion\Http\Requests;
 use Calibracion\Http\Controllers\Controller;
 use Storage;
@@ -39,7 +40,8 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        return view('usuarios.create');
+        $tipo_usuarios = Perfil::lists('tipo_usuario','id');
+        return view('usuarios.create',compact('id','tipo_usuarios'));
     }
 
     /**
@@ -102,7 +104,8 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        User::destroy($id);
+        $usuario = User::findOrFail($id);
+        $usuario->delete();
         Session::flash('mensaje','El usuario fue eliminado exitosamente');
         return Redirect::to('/usuario');
 

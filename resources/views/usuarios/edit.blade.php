@@ -19,11 +19,6 @@
                         {!!Form::model($usuario,['route' => ['usuario.update',$usuario->id], 'method' => 'PUT', 'files' => true])!!}
 
                             <div class = "form-group has-feedback">
-                                {!!Form::label('Código')!!}
-                                {!!Form::text('codigo_usuario',null,['class'=>'form-control'])!!}
-                            </div>
-
-                            <div class = "form-group has-feedback">
                                 {!!Form::label('Nombres*')!!}
                                 {!!Form::text('name',null,['class'=>'form-control'])!!}
                             </div>
@@ -41,11 +36,6 @@
                             <div class = "form-group has-feedback">
                                 {!!Form::label('Apellido Materno')!!}
                                 {!!Form::text('apellido_materno',null,['class'=>'form-control'])!!}
-                            </div>
-
-                            <div class = "form-group has-feedback">
-                                {!!Form::label('Rut')!!}
-                                {!!Form::text('rut_usuario',null,['class'=>'form-control'])!!}
                             </div>
 
                             <div class = "form-group has-feedback">

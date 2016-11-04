@@ -31,6 +31,8 @@
 <body class="hold-transition login-page">
 @yield('contenido')
 
+
+
 <!-- jQuery 2.2.3 -->
 {!!Html::script('plugins/jQuery/jquery-2.2.3.min.js')!!}
 <!-- Bootstrap 3.3.6 -->

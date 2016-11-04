@@ -147,6 +147,7 @@ return [
         Calibracion\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Freshwork\ChileanBundle\Laravel\ChileanBundleServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
     ],
 
     /*
@@ -198,7 +199,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Rut'  => Freshwork\ChileanBundle\Laravel\Facades\Rut::class,
-
+        'PDF'  => Barryvdh\DomPDF\Facade::class,
 
     ],
 
