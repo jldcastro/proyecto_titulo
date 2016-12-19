@@ -4,7 +4,7 @@ namespace Calibracion\Http\Requests;
 
 use Calibracion\Http\Requests\Request;
 
-class UsuarioCreateRequest extends Request
+class EquipoCreateRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,7 @@ class UsuarioCreateRequest extends Request
     public function rules()
     {
         return [
-            'codigo_usuario' => 'required|numeric',
-            'name' => 'required',
-            'email' => 'required|unique:users',
-            'password' => 'required|confirmed|min:6',
-            'apellido_paterno' => 'required',
-            'apellido_materno' => 'required',
-            'rut_usuario' => 'required|cl_rut|unique:users',
-            'perfil_id' => 'required'
+
         ];
     }
 }

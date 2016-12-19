@@ -39,6 +39,21 @@ class BaseDeDatos extends Migration
             $table->timestamps();
             $table->foreign('perfil_id')->references('id')->on('perfiles')->onDelete('cascade');
         });
+
+        Schema::create('equipos', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('equipo');
+            $table->string('marca_modelo');
+            $table->string('nserie');
+            $table->string('cod_interno');
+            $table->string('capacidad');
+            $table->string('clase_oiml');
+            $table->string('error_max');
+            $table->string('lugar_almacenamiento');
+            $table->date('fcompra');
+            $table->timestamps();
+
+        });
     }
 
 
@@ -51,5 +66,6 @@ class BaseDeDatos extends Migration
     {
         Schema::drop('perfiles');
         Schema::drop('users');
+        Schema::drop('equipos');
     }
 }

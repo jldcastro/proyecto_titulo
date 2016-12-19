@@ -22,7 +22,7 @@
                     {!!Form::open(['route' => 'perfil.store','method' => 'POST' ])!!}
 
                         <div class = "form-group has-feedback">
-                            {!!Form::label('Tipo de usuario')!!}
+                            {!!Form::label('tipo_usuario', 'Tipo de usuario')!!}
                             {!!Form::text('tipo_usuario',null,['class'=>'form-control','required'])!!}
                         </div>
 
@@ -35,3 +35,4 @@
         </div>
     </div>
 @stop
+

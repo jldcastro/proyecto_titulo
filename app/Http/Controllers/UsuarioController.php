@@ -33,6 +33,12 @@ class UsuarioController extends Controller
         return view('usuarios.index', compact('usuarios'));
     }
 
+    public function pagina_usuario($id)
+    {
+        $usuario = User::find($id);
+        return view('usuarios.vendedor', ['usuario' => $usuario]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -41,6 +47,7 @@ class UsuarioController extends Controller
     public function create()
     {
         $tipo_usuarios = Perfil::lists('tipo_usuario','id');
+
         return view('usuarios.create',compact('id','tipo_usuarios'));
     }
 
