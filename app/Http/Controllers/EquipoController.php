@@ -8,10 +8,12 @@ use Calibracion\Http\Requests;
 use Calibracion\Http\Controllers\Controller;
 use Calibracion\Http\Requests\EquipoCreateRequest;
 use Calibracion\Equipo;
+use Calibracion\Image;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use Carbon\Carbon;
 use PhpOffice\PhpWord\TemplateProcessor;
+
 
 class EquipoController extends Controller
 {
@@ -44,7 +46,6 @@ class EquipoController extends Controller
      */
     public function store(Request $request)
     {
-
         Equipo::create($request->all());
         return redirect('/equipo')->with('mensaje', 'El equipo fue agregado exitosamente');
     }
@@ -69,7 +70,8 @@ class EquipoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $equipo = Equipo::find($id);
+        return view('equipos.edit', ['equipo' => $equipo]);
     }
 
     /**
@@ -81,7 +83,10 @@ class EquipoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $equipo = Equipo::find($id);
+        $equipo->fill($request->all());
+        $equipo->save();
+        return redirect('/equipo')->with('mensaje', 'Se guardaron los cambios exitosamente');
     }
 
     /**
@@ -114,8 +119,24 @@ class EquipoController extends Controller
         $templateWord->setValue('error_max', $resultado->error_max);
         $templateWord->setValue('lugar_almacenamiento', $resultado->lugar_almacenamiento);
         $templateWord->setValue('fcompra', $resultado->fcompra);
-        $templateWord->saveAs('equipo'.$id.'.docx');
-        header("Content-Disposition: attachment; Filename='equipo$id.docx'");
-        file_put_contents("f4/equipo.$id.docx",$templateWord);
+        $templateWord->setValue('norden_compra', $resultado->norden_compra);
+        $templateWord->setValue('proveedor', $resultado->proveedor);
+        $templateWord->setValue('intervalo_mantenimiento', $resultado->intervalo_mantenimiento);
+        $templateWord->setValue('fecha_mantenimiento', $resultado->fecha_mantenimiento);
+        $templateWord->setValue('avisar', $resultado->avisar);
+        $templateWord->setValue('pauta_mantencion', $resultado->pauta_mantencion);
+        $templateWord->setValue('intervalo_calibracion', $resultado->intervalo_calibracion);
+        $templateWord->setValue('intervalo_verificacion', $resultado->intervalo_verificacion);
+        $templateWord->setValue('criterio_aceptacion', $resultado->criterio_aceptacion);
+        $templateWord->setValue('observaciones', $resultado->observaciones);
+        $templateWord->setValue('actividad', $resultado->actividad);
+        $templateWord->setValue('f_realizacion', $resultado->f_realizacion);
+        $templateWord->setValue('f_proxima', $resultado->f_proxima);
+        $templateWord->setValue('realizado_por', $resultado->realizado_por);
+        $templateWord->setValue('ncertificado', $resultado->ncertificado);
+        $templateWord->setValue('observacion', $resultado->observacion);
+        $templateWord->saveAs("f4/equipo" . $id . ".docx");
+        header("Content-Disposition: attachment; filename=equipo" .$id . ".docx; charset=iso-8859-1");
+        echo file_get_contents("f4/equipo" . $id. ".docx");
     }
 }

@@ -36,7 +36,7 @@
                                 <td><button class=".btn-flat btn-success"><i class="fa fa-pencil-square-o"></i><a href="equipo/{{$equipo->id}}/edit" style="color: #ffffff">Actualizar</a></button></td>
                                 <td><button class=".btn-flat btn-warning"><i class="fa fa-eye"></i><a href="equipo/{{$equipo->id}}" style="color: #ffffff">Detalles</a></button></td>
                                 <td><button class=".btn-flat btn-danger" data-toggle="modal" data-target="#myModal"><i class="fa fa-remove"></i><a style="color: #ffffff">Eliminar</a></button></td>
-                                <td><button class=".btn-flat btn-primary"><i class="fa fa-file-pdf-o"></i><a href="equipo/word/{{$equipo->id}}" style="color: #ffffff"> Descargar Word</a></button></td>
+                                <td><button class=".btn-flat btn-primary"><i class="fa fa-file-word-o"></i><a href="equipo/word/{{$equipo->id}}" style="color: #ffffff"> Descargar Word</a></button></td>
                         </tr>
                             @endforeach
                     </table>

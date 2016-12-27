@@ -12,7 +12,7 @@
                     <div class = "form-group has-feedback">
                         <label>Imagen perfil usuario</label>
                         <br>
-                        <img src="{{asset('imagenes/usuarios/'.$usuario->foto)}}" width="150px">
+                        <img src="{{asset('imagenes/'.$usuario->foto)}}" width="150px">
                     </div>
 
                     <div class = "form-group has-feedback">

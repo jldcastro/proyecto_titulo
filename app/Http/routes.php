@@ -16,8 +16,6 @@ Route::get('/administrador','AdministradorController@index');
 
 Route::resource('/usuario','UsuarioController');
 
-Route::get('/perfil/vendedor','UsuarioController@pagina_usuario');
-
 Route::resource('/perfil','PerfilController');
 
 Route::resource('/contraseña','ContrasenaController');
@@ -25,8 +23,6 @@ Route::resource('/contraseña','ContrasenaController');
 Route::resource('/equipo','EquipoController');
 
 Route::get('/equipo/word/{id}','EquipoController@word');
-
-Route::get('/pdf/equipos','PdfController@invoice');
 
 Route::resource('/login','LoginController');
 
